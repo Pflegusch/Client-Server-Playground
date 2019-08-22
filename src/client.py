@@ -1,9 +1,6 @@
 import socket
 import sys 
 
-#HOST = '192.168.178.31'  # The server's hostname or IP address
-#PORT = 65432             # The port used by the server
-
 HOST = sys.argv[1]
 PORT = (int)(sys.argv[2])
 
