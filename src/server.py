@@ -26,5 +26,6 @@ while True:
                     break
                 else: 
                     print(data.decode())
+                    conn.sendall(b'Server received message') 
                     exit()
                 conn.sendall(data)
