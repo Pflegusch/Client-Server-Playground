@@ -25,5 +25,6 @@ while True:
                 if not data:
                     break
                 else: 
-                    pass
+                    print(data.decode())
+                    exit()
                 conn.sendall(data)
