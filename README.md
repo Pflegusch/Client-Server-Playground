@@ -1,5 +1,11 @@
 [![Build Status](https://travis-ci.com/Pflegusch/Client-Server-Playground.svg?branch=master)](https://travis-ci.com/Pflegusch/Client-Server-Playground)
 
+| Branch | Build status |
+| --- | --- |
+| `Master` | [![Build Status](https://travis-ci.com/Pflegusch/Client-Server-Playground.svg?branch=master)](https://travis-ci.com/Pflegusch/Client-Server-Playground) |
+| `Develop` | [![Build Status](https://travis-ci.com/Pflegusch/Client-Server-Playground.svg?branch=master)](https://travis-ci.com/Pflegusch/Client-Server-Playground) |
+
+
 # Client-Server-Playground
 
 Run the server.py script on your (Windows) machine you want to control and the client script on the client. 
