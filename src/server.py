@@ -30,15 +30,21 @@ while True:
                     conn.sendall(b'Server set to sleep')
                     exit()
                 elif b'vol'in data:
-                    import re
-                    vol = int(re.search(r'\d+', data.decode()).group(0)) 
-                    sessions = AudioUtilities.GetAllSessions()
-                    for session in sessions:
-                        volume = session._ctl.QueryInterface(ISimpleAudioVolume)
-                        if session.Process and session.Process.name() == "Spotify.exe":
-                            print("Spotify volume: %s" % (volume.GetMasterVolume() * 100))
-                            volume.SetMasterVolume(vol / 100, None)
-                    exit() 
+                    try: 
+                        import re
+                        vol = int(re.search(r'\d+', data.decode()).group(0)) 
+                        sessions = AudioUtilities.GetAllSessions()
+                        for session in sessions:
+                            volume = session._ctl.QueryInterface(ISimpleAudioVolume)
+                            if session.Process and session.Process.name() == "Spotify.exe":
+                                print("Spotify volume: %s" % (volume.GetMasterVolume() * 100))
+                                volume.SetMasterVolume(vol / 100, None)
+                        conn.sendall(b'Spotify master volume successfully adjusted!')
+                        exit() 
+                    except: 
+                        print("Unknown Error occurred") 
+                        conn.sendall(b'Unknown error occured') 
+                        exit() 
                 if not data:
                     break
                 else: 
