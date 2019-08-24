@@ -32,7 +32,6 @@ while True:
                 elif b'vol'in data:
                     import re
                     vol = int(re.search(r'\d+', data.decode()).group(0)) 
-                    print(vol)
                     sessions = AudioUtilities.GetAllSessions()
                     for session in sessions:
                         volume = session._ctl.QueryInterface(ISimpleAudioVolume)
