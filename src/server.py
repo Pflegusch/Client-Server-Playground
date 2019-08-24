@@ -1,3 +1,5 @@
+from __future__ import print_function
+from pycaw.pycaw import AudioUtilities, ISimpleAudioVolume
 import socket
 import os
 import sys
@@ -27,6 +29,16 @@ while True:
                     os.system("rundll32.exe powrprof.dll,SetSuspendState 0,1,0")
                     conn.sendall(b'Server set to sleep')
                     exit()
+                elif b'vol'in data:
+                    import re
+                    vol = int(re.search(r'\d+', data.decode()).group(0)) 
+                    print(vol)
+                    sessions = AudioUtilities.GetAllSessions()
+                    for session in sessions:
+                        volume = session._ctl.QueryInterface(ISimpleAudioVolume)
+                        if session.Process and session.Process.name() == "Spotify.exe":
+                            print("Spotify volume: %s" % (volume.GetMasterVolume() * 100))
+                            volume.SetMasterVolume(vol / 100, None)
                 if not data:
                     break
                 else: 
