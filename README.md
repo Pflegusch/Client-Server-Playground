@@ -2,8 +2,8 @@
 
 | Branch | Build status |
 | --- | --- |
-| Master | [![Build Status](https://travis-ci.com/Pflegusch/Client-Server-Playground.svg?branch=master)](https://travis-ci.com/Pflegusch/Client-Server-Playground) |
-| Develop | [![Build Status](https://travis-ci.com/Pflegusch/Client-Server-Playground.svg?branch=master)](https://travis-ci.com/Pflegusch/Client-Server-Playground) |
+| master | [![Build Status](https://travis-ci.com/Pflegusch/Client-Server-Playground.svg?branch=master)](https://travis-ci.com/Pflegusch/Client-Server-Playground) |
+| develop | [![Build Status](https://travis-ci.com/Pflegusch/Client-Server-Playground.svg?branch=master)](https://travis-ci.com/Pflegusch/Client-Server-Playground) |
 
 
 # Client-Server-Playground
