@@ -39,6 +39,7 @@ while True:
                         if session.Process and session.Process.name() == "Spotify.exe":
                             print("Spotify volume: %s" % (volume.GetMasterVolume() * 100))
                             volume.SetMasterVolume(vol / 100, None)
+                    exit() 
                 if not data:
                     break
                 else: 
