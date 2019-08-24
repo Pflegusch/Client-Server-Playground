@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Pflegusch/Client-Server-Playground.svg?branch=master)](https://travis-ci.org/Pflegusch/Client-Server-Playground)
+
 # Client-Server-Playground
 
 Run the server.py script on your (Windows) machine you want to control and the client script on the client. 
