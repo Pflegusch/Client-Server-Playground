@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.com/Pflegusch/Client-Server-Playground.svg?branch=master)](https://travis-ci.com/Pflegusch/Client-Server-Playground)
-
 | Branch | Build status |
 | --- | --- |
 | master | [![Build Status](https://travis-ci.com/Pflegusch/Client-Server-Playground.svg?branch=master)](https://travis-ci.com/Pflegusch/Client-Server-Playground) |
