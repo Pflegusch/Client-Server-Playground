@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/Pflegusch/Client-Server-Playground.svg?branch=master)](https://travis-ci.org/Pflegusch/Client-Server-Playground)
+[![Build Status](https://travis-ci.com/Pflegusch/Client-Server-Playground.svg?branch=master)](https://travis-ci.com/Pflegusch/Client-Server-Playground)
 
 # Client-Server-Playground
 
