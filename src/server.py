@@ -4,11 +4,6 @@ import socket
 import os
 import sys
 
-import pytest
-
-def basic_test():
-    assert(1==1)
-
 HOST = '192.168.178.31'  # Standard loopback interface address (localhost)
 PORT = (int)(sys.argv[1])
 
