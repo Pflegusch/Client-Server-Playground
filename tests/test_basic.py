@@ -1,4 +1,4 @@
 import pytest
 
-def basic_test():
+def test_basic():
     assert(1==1)
