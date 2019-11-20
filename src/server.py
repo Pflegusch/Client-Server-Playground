@@ -7,6 +7,19 @@ import sys
 HOST = '192.168.178.31'  # Standard loopback interface address (localhost)
 PORT = (int)(sys.argv[1])
 
+def adjust_volume(program, data): 
+    import re
+    vol = int(re.search(r'\d+', data.decode()).group(0)) 
+    sessions = AudioUtilities.GetAllSessions()
+    proc = str(program)
+    for session in sessions:
+        volume = session._ctl.QueryInterface(ISimpleAudioVolume)
+        if session.Process and session.Process.name() == (proc + ".exe"):
+            print(proc + " volume: %s" % (volume.GetMasterVolume() * 100))
+            volume.SetMasterVolume(vol / 100, None)
+    conn.sendall(bytes(proc) + b' master volume successfully adjusted!')
+    exit() 
+
 if PORT <= 1023 or PORT >= 65535: 
     print("ERROR: Please choose a valid Port ranging from 1024 to 65535") 
     exit() 
@@ -31,16 +44,7 @@ while True:
                     exit()
                 elif b'vol'in data:
                     try: 
-                        import re
-                        vol = int(re.search(r'\d+', data.decode()).group(0)) 
-                        sessions = AudioUtilities.GetAllSessions()
-                        for session in sessions:
-                            volume = session._ctl.QueryInterface(ISimpleAudioVolume)
-                            if session.Process and session.Process.name() == "Spotify.exe":
-                                print("Spotify volume: %s" % (volume.GetMasterVolume() * 100))
-                                volume.SetMasterVolume(vol / 100, None)
-                        conn.sendall(b'Spotify master volume successfully adjusted!')
-                        exit() 
+                        adjust_volume("Spotify", data)
                     except: 
                         print("Unknown Error occurred") 
                         conn.sendall(b'Unknown error occured') 
