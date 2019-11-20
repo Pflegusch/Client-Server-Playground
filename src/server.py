@@ -16,9 +16,7 @@ def adjust_volume(program, data):
         volume = session._ctl.QueryInterface(ISimpleAudioVolume)
         if session.Process and session.Process.name() == (proc + ".exe"):
             print(proc + " volume: %s" % (volume.GetMasterVolume() * 100))
-            volume.SetMasterVolume(vol / 100, None)
-    conn.sendall(bytes(proc) + b' master volume successfully adjusted!')
-    exit() 
+            volume.SetMasterVolume(vol / 100, None) 
 
 if PORT <= 1023 or PORT >= 65535: 
     print("ERROR: Please choose a valid Port ranging from 1024 to 65535") 
@@ -45,14 +43,10 @@ while True:
                 elif b'vol'in data:
                     try: 
                         adjust_volume("Spotify", data)
+                        conn.sendall(b'Master volume successfully adjusted!')
                     except: 
                         print("Unknown Error occurred") 
                         conn.sendall(b'Unknown error occured') 
                         exit() 
                 if not data:
                     break
-                else: 
-                    print(data.decode())
-                    conn.sendall(b'Server received message') 
-                    exit()
-                conn.sendall(data)
